@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shreyans Mutha</title>
+    <style>
+        body {
+            background: #091921;
+        }
+
+        .clock {
+            width: 180px;
+            height: 180px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url(clock.png);
+            background-size: cover;
+            border: 4px solid #091921;
+            border-radius: 50%;
+            box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+                inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+                0 15px 15px rgba(0, 0, 0, 0.3),
+                inset 0 15px 15px rgba(0, 0, 0, 0.3);
+            margin: auto;
+            pointer-events: none;
+        }
+
+        .clock:before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #fff;
+            border-radius: 50%;
+            z-index: 10000;
+        }
+
+        .clock .hour,
+        .clock .min,
+        .clock .sec {
+            position: absolute;
+        }
+
+        .clock .hour,
+        .hr {
+            width: 80px;
+            height: 80px;
+        }
+
+        .clock .min,
+        .mn {
+            width: 85px;
+            height: 85px;
+        }
+
+        .clock .sec,
+        .sc {
+            width: 115px;
+            height: 115px;
+        }
+
+        .hr,
+        .mn,
+        .sc {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .hr:before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 40px;
+            background: #ff105e;
+            z-index: 10;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .mn:before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 45px;
+            background: #fff;
+            z-index: 11;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .sc:before {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 75px;
+            background: #fff;
+            z-index: 12;
+            border-radius: 3px 3px 0 0;
+        }
+
+
+        .way_to_home {
+            text-decoration: none;
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+
+        }
+
+        h1 {
+            color: black;
+            text-transform: uppercase;
+        }
+
+
+
+        h1::selection {
+            background-color: #091921;
+            color: rgb(255, 255, 255);
+        }
+
+
+
+
+
+
+
+
+        /* Flashlight Overlay */
+        :root {
+            cursor: none;
+            --cursorX: 50vw;
+            --cursorY: 50vh;
+        }
+
+        :root:before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            pointer-events: none;
+            background: radial-gradient(circle 10vmax at var(--cursorX) var(--cursorY),
+                    rgba(255, 255, 255, 0.4) 0%,
+                    rgba(255, 255, 255, 0.2) 80%,
+                    rgba(0, 0, 0, .95) 100%);
+        }
+    </style>
+    <link rel="icon" type="image/png" href="../images/logo.jpg" />
+    <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+
+    </div>
+
+    <div id="content">
+
+        <div class="clock">
+            <div class="hour">
+                <div class="hr" id="hr"></div>
+            </div>
+            <div class="min">
+                <div class="mn" id="mn"></div>
+            </div>
+            <div class="sec">
+                <div class="sc" id="sc"></div>
+            </div>
+        </div>
+
+        <div>
+            <a class="way_to_home" href="../Home.html">
+                <h1>Let's get into it.</h1>
+            </a>
+        </div>
+
+    </div>
+    <script>
+        function update(e) {
+            var x = e.clientX || e.touches[0].clientX
+            var y = e.clientY || e.touches[0].clientY
+
+            document.documentElement.style.setProperty('--cursorX', x + 'px')
+            document.documentElement.style.setProperty('--cursorY', y + 'px')
+        }
+
+        document.addEventListener('mousemove', update)
+        document.addEventListener('touchmove', update)
+
+
+        const deg = 6;
+        const hr = document.querySelector('#hr');
+        const mn = document.querySelector('#mn');
+        const sc = document.querySelector('#sc');
+
+
+        setInterval(() => {
+            let day = new Date();
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
+
+            hr.style.transform = `rotateZ(${(hh)+(mm/12)}deg)`;
+            mn.style.transform = `rotateZ(${mm}deg)`;
+            sc.style.transform = `rotateZ(${ss}deg)`;
+        });
+    </script>
+</body>
+
+</html>

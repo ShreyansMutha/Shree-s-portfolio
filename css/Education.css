@@ -1,0 +1,140 @@
+body {
+    background: linear-gradient(to right, #e8cbc0, #636fa4);
+    cursor: default;
+}
+
+.sec_title h3 {
+    color: #000;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 36px;
+    font-family: 'Luckiest Guy', cursive;
+    letter-spacing: 2px;
+}
+
+.education .item {
+    position: relative;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-top: 4px;
+    margin-left: 5px;
+    border-left-width: 1px;
+    border-left-style: solid;
+}
+
+.education .item:last-of-type {
+    padding-bottom: 2px;
+}
+
+.education .date {
+    position: relative;
+    line-height: 1;
+}
+
+.education .date:after, .education .date:before {
+    content: "";
+    position: absolute;
+    top: 11px;
+    left: -20px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+
+.education .date:before {
+    background: #FFFFFF;
+    width: 15px;
+    height: 15px;
+    top: 8px;
+    left: -23px;
+}
+
+.education .date span {
+    font-size: 14px;
+    font-weight: 500;
+    color: darkgreen;
+    letter-spacing: 0.5px;
+}
+
+.education h4 {
+    color: #222;
+    font-size: 17px;
+}
+
+.education .item p {
+    font-size: 15px;
+}
+
+.container h1 {
+    font-size: 5em;
+}
+
+.menu {
+    padding-left: 2px;
+    padding-top: 2px;
+}
+
+.item:hover {
+    transform: scale(1.2);
+}
+
+.container h1:hover {
+    animation: swing 1s ease;
+    animation-iteration-count: infinite;
+    animation-delay: 0.2s;
+}
+
+@-webkit-keyframes swing {
+    15% {
+        -webkit-transform: translateY(5px);
+        transform: translateY(5px);
+    }
+    30% {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+    50% {
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px);
+    }
+    65% {
+        -webkit-transform: translateY(-3px);
+        transform: translateY(-3px);
+    }
+    80% {
+        -webkit-transform: translateY(2px);
+        transform: translateY(2px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes swing {
+    15% {
+        -webkit-transform: translateY(5px);
+        transform: translateY(5px);
+    }
+    30% {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+    50% {
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px);
+    }
+    65% {
+        -webkit-transform: translateY(-3px);
+        transform: translateY(-3px);
+    }
+    80% {
+        -webkit-transform: translateY(2px);
+        transform: translateY(2px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
